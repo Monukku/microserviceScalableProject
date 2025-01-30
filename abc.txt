@@ -1,0 +1,31 @@
+cd ..\kafka
+cd ..
+
+Command for Starting kafka server in kraft mode
+C:\kafka>.\bin\windows\kafka-storage.bat random-uuid
+frSUf18QR-S9dkb0Gcu3aQ
+C:\kafka>.\bin\windows\kafka-storage.bat format -t  2W0lGmdmRECC4-wroLEIKg -c .\config\kraft\server.properties --ignore-formatted
+C:\kafka>.\bin\windows\kafka-server-start.bat .\config\kraft\server.properties
+
+start keycloak using SDK
+C:\keycloak>.\bin\kc.bat start-dev --http-port=7070
+
+steps to create helm chart :
+
+1. install helm -> we can verify using :<helm version> command
+
+2. creating helm chart for accounts 
+
+C:\Users\hp\Downloads\Microservices_11_02_2024\helm\rewabank-services>helm create accounts
+Creating accounts
+
+3. compile helm chart to see dependent helm chart inside chart.yaml folder for accounts
+
+C:\Users\hp\Downloads\Microservices_11_02_2024\helm\rewabank-services\accounts>helm dependencies build
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "kbernetes-dashboard" chart repository
+...Successfully got an update from the "kubernetes-dashboard" chart repository
+...Successfully got an update from the "bitnami" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Saving 1 charts
+Deleting outdated charts
